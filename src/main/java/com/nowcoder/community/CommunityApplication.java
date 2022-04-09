@@ -1,13 +1,13 @@
-package ls.learn.newcode;
+package com.nowcoder.community;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NewcodeApplication {
+public class CommunityApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NewcodeApplication.class, args);
+        SpringApplication.run(CommunityApplication.class, args);
     }
 
 }
