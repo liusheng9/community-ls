@@ -184,7 +184,7 @@
 	<script th:src="@{/js/global.js}"></script>
 	<script>
 		function refresh_kaptcha() {
-			var path = CONTEXT_PATH + "/kaptcha?p=" + Math.random(); // 加参数的作用：欺骗浏览器路径变了
+			var path = CONTEXT_PATH + "/kaptcha?p=" + Math.random(); // 加参数的作用：欺骗浏览器路径变了,只是多加了一个参数
 			$("#kaptcha").attr("src", path);
 		}
 	</script>
