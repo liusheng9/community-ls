@@ -19,7 +19,10 @@ public class MailTests {
     private TemplateEngine templateEngine;
     @Test
     public void testTextMail(){
-        mailClient.sendMail("ls525857@sina.cn","test","Welcome");
+        String to="ls525857@sina.cn";
+        String subject="test";
+        String content="welcome....";
+        mailClient.sendMail(to,subject,content);
     }
     @Test
     public void testHtmlMail(){

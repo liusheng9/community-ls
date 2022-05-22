@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMailMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -17,24 +18,23 @@ public class MailClient {
 
     private static final Logger logger=LoggerFactory.getLogger(MailClient.class);
     @Autowired
-    private JavaMailSender javaMailSender;
+    private JavaMailSender mailSender;
 
-    @Value("{spring.mail.username}")
+    @Value("${spring.mail.username}")
     private String from;
 
     //发送html格式的邮件
-
     public void sendMail(String to,String subject,String content)  {
         try {
-            MimeMessage message=javaMailSender.createMimeMessage();
+            MimeMessage message=mailSender.createMimeMessage();
             MimeMessageHelper helper=new MimeMessageHelper(message);
             helper.setFrom(from);
             helper.setTo(to);
             helper.setSubject(subject);
-            helper.setText(content);
-            javaMailSender.send(helper.getMimeMessage());
+            helper.setText(content,true); //支持html文本
+            mailSender.send(helper.getMimeMessage());
         } catch (MessagingException e) {
-            System.out.println("发送邮件失败:"+e.getMessage());
+           logger.info("发送邮件失败:"+e.getMessage());
         }
 
     }

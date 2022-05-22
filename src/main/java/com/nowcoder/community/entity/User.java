@@ -1,16 +1,10 @@
 package com.nowcoder.community.entity;
 
-import jdk.nashorn.internal.runtime.logging.Logger;
 import lombok.Data;
 
 import java.util.Date;
 
-/**
- * @version v1.0
- * @ClassName:
- * @Description（一句话描述该类的功能）：
- * @Author:刘胜
- */
+
 @Data
 public class User {
     private int id;
@@ -91,7 +85,7 @@ public class User {
         return headerUrl;
     }
 
-    public void setHeaderUrl(String headerUrl) {
+    public void setHeaderUrl(String headerUrl, int i) {
         this.headerUrl = headerUrl;
     }
 
